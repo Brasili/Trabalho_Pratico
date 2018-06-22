@@ -25,21 +25,30 @@
 			
 			<fieldset>
 			
+				<legend><h2>Sobre Nós</h2></legend>
+			
 				<br />
 				<br />
 				
-				<h1>Olá seja bem vindo ao</h1>
-				<h1>WHERE GO IN A TRIP</h1>
-				
-				<a href="sobre.php">Sobre Nós</a>
+				<section>
+
+					<p>
+					
+						<b>Where Go in a Trip</b> é uma aplicação WEB destina a turistas interessados, 
+						em conhecer os diversos pontos turísticos espalhados por todo o Mundo. 
+						Nossa plataforma possibilita, cadastros, listagens e trocas de informações  
+						referentes a localidade desejada.
+
+					</p>
+
+				</section>
 				
 				<br />
 				<br />
-				<br />
-				
 				
 			</fieldset>
 			
+			<br/>
 			<br/>
 			<br/>
 			

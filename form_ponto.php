@@ -5,7 +5,7 @@
 	<head>
 	
 		<meta charset="UTF-8"/>
-		<title>Cadastro  de Comentarios</title>
+		<title>Cadastro  de Pontos Turisticos</title>
 		<link rel="stylesheet" href="estilos.css"/>
 		
 	</head>
@@ -25,59 +25,43 @@
 			
 			<fieldset>
 			
-				<legend><h2>Comente um Ponto Turistico</h2></legend>
+				<legend><h2>Cadastre um Ponto Turistico</h2></legend>
 				
-				<form method = "post" action = "cadastra_comentarios.php">
+				<form method = "post" action = "cadastra_pontos.php">
 					
 					<br />
-					<label>Nome do Autor: </label>
+					<label>Nome do Ponto Turistico: </label>
 					<br />
-					<input type = "text" name = "nome_autor" />
-					
-					<br />
-					<br />
-					
-					<label>E-mail do Autor: </label>
-					<br />
-					<input type = "text" name = "email" />
+					<input type = "text" name = "nome_ponto" />
 					
 					<br />
 					<br />
 					
-					<label>Ponto Turistico: </label>
+					<label>Cidade onde está Localizado: </label>
 					<br />
-					<select name = "ponto_comentario">
+					<select name = "cidade_ponto">
 						
 						<br />
 						
-						<option value="nulo">::Selecionar Ponto::</option>
+						<option value="nulo">::Selecionar Cidade::</option>
 						
 						<?php 
 							include("conexao.php");
 							
-							$select = "SELECT * FROM cidade_ponto";
+							$select = "SELECT * FROM cidade_pais";
 							
 							$resultado = mysqli_query($link,$select) or die(mysqli_error($link));
 						
 							while($linha = mysqli_fetch_array($resultado)){
 						?>
 						
-						<option value = "<?= $linha['id_ponto']?>"  > <?= $linha["nome_ponto"] . " | " . $linha["nome_cidade"]. " - " . $linha["sigla"] ?> </option>	
+						<option value = "<?= $linha['id_cidade']?>"  > <?= $linha["nome_cidade"] . " | " . $linha["sigla"] ?> </option>	
 						
 						<?php
 							}
 						?>
 					
 					</select>
-					
-					
-					
-					<br />
-					<br />
-					
-					<label>Comente Abaixo: </label>
-					<br />
-					<textarea name="comentario"> </textarea>
 					
 					<br />
 					<br />

@@ -4,11 +4,11 @@
 	
 	if(isset($_POST["filtro"])){
 		
-		$select = "SELECT * FROM paises where nome LIKE '%".$_POST["filtro"]."%' ";
+		$select = "SELECT * FROM lista_cidades WHERE nome_cidade LIKE '%".$_POST["filtro"]."%' ";
 		
 	} else {
 	
-		$select = "SELECT * FROM paises ";
+		$select = "SELECT * FROM lista_cidades ";
 	
 	}
 	
@@ -28,22 +28,22 @@
 			include('menu.php');
 			echo"<br/>
 			
-			<h1>PAISES</h1>
+			<h1>CIDADES</h1>
 			
-			<form method = 'post' action = 'lista_paises.php'>
+			<form method = 'post' action = 'lista_cidades.php'>
 				
 				<br />
-				<label>Nome do Pais: </label>
+				<label>Nome da Cidade: </label>
 				<input type = 'text' name = 'filtro' />
 				<input type = 'submit' value = 'Buscar' />
 				
 			</form>
 			
-			<form method = 'post' action = 'lista_paises.php'>
+			<form method = 'post' action = 'lista_cidades.php'>
 				
 				<br />
-				<input type = 'radio' name = 'order' value='sigla'/>Sigla
-				<input type = 'radio' name = 'order' value='nome'/>Nome
+				<input type = 'radio' name = 'order' value='nome_cidade'/>Cidade
+				<input type = 'radio' name = 'order' value='nome'/>Pais
 				<input type = 'submit' value = 'Ordenar' /><br/><br/>
 				
 			</form>
@@ -52,8 +52,8 @@
 			
 				<tr>
 				
-					<th>Nome do Pais</th>
-					<th>Sigla do Pais</th>
+					<th>Nome da Cidade</th>
+					<th>Pais da Cidade</th>
 					<th>Acao</th>
 				
 				</tr>
@@ -66,9 +66,9 @@
 			
 			<tr>
 				
+				<td>$linha[nome_cidade]</td>
 				<td>$linha[nome]</td>
-				<td>$linha[sigla]</td>
-				<td><a href=remove_pais.php?id=$linha[id_pais]>Remover</a></td>
+				<td><a href=remove_cidade.php?id=$linha[id_cidade]>Remover</a></td>
 				
 			</tr>
 			

@@ -2,13 +2,14 @@
 
 	include("conexao.php");
 	
+	
 	if(isset($_POST["filtro"])){
 		
-		$select = "SELECT * FROM lista_comentarios where nome_ponto LIKE '%".$_POST["filtro"]."%' ";
+		$select = "SELECT * FROM lista_pontos where nome_ponto LIKE '%".$_POST["filtro"]."%' ";
 		
 	} else {
 	
-		$select = "SELECT * FROM lista_comentarios ";
+		$select = "SELECT * FROM lista_pontos ";
 	
 	}
 	
@@ -30,7 +31,7 @@
 			
 			<h1>PONTOS TURISTICOS</h1>
 			
-			<form method = 'post' action = 'lista_comentarios.php'>
+			<form method = 'post' action = 'lista_pontos.php'>
 				
 				<br />
 				<label>Nome do Ponto: </label>
@@ -39,10 +40,11 @@
 				
 			</form>
 			
-			<form method = 'post' action = 'lista_comentarios.php'>
+			<form method = 'post' action = 'lista_pontos.php'>
 				
 				<br />
 				<input type = 'radio' name = 'order' value='nome_ponto'/>Ponto turistico
+				<input type = 'radio' name = 'order' value='nome_cidade'/>Cidade
 				<input type = 'submit' value = 'Ordenar' /><br/><br/>
 				
 			</form>
@@ -52,8 +54,8 @@
 				<tr>
 				
 					<th>Nome do Ponto Turistico</th>
-					<th>Comentario</th>
-					<th>Dados do Comentario</th>
+					<th>Cidade do Ponto Turistico</th>
+					<th>Acao</th>
 				
 				</tr>
 		
@@ -66,8 +68,8 @@
 			<tr>
 				
 				<td>$linha[nome_ponto]</td>
-				<td>$linha[comentario]</td>
-				<td><a href=info_comentario.php?id=$linha[id_comentario]>INFO</a></td>
+				<td>$linha[nome_cidade]</td>
+				<td><a href=remove_ponto.php?id=$linha[id_ponto]>Remover</a></td>
 				
 			</tr>
 			
